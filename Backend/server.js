@@ -48,7 +48,7 @@ const upload = multer({ storage });
 // Upload endpoint
 app.post("/upload", upload.single("pdf"), async (req, res) => {
   try {
-    const { originalname, filename, size } = req.file;
+    const { originalname, filename, size } = req.body;
     const pdf = new Pdf({
       name: originalname,
       path: filename,
